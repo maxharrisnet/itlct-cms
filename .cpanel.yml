@@ -2,6 +2,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/ifthesel/cms/
     - /bin/cp server.js $DEPLOYPATH
+    - /bin/cp package.json $DEPLOYPATH
     - /bin/cp -R .strapi $DEPLOYPATH
     - /bin/cp -R config $DEPLOYPATH
     - /bin/cp -R database $DEPLOYPATH
