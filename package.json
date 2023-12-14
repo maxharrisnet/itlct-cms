@@ -2,7 +2,7 @@
   "name": "itlct-cms",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "The CMS for the If These Lands Could Talk organization's website",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
