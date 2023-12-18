@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "events-and-programs",
+    "pluralName": "events",
+    "displayName": "Events & Programs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}
