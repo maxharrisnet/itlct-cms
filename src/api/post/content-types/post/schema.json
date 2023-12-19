@@ -35,15 +35,6 @@
       "type": "date",
       "required": true
     },
-    "content": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "blocks",
-      "required": true
-    },
     "admin_user": {
       "type": "relation",
       "relation": "oneToOne",

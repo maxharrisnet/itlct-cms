@@ -862,13 +862,6 @@ export interface ApiPostPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    content: Attribute.Blocks &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     admin_user: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'>;
     featured_image: Attribute.Media &
       Attribute.SetPluginOptions<{
