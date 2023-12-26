@@ -723,12 +723,14 @@ export interface ApiEventsAndProgramsEventsAndPrograms
     singularName: 'events-and-programs';
     pluralName: 'events';
     displayName: 'Events & Programs';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    title: Attribute.String;
+    content: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -753,6 +755,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     singularName: 'homepage';
     pluralName: 'homepages';
     displayName: 'Homepage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -761,6 +764,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     Title: Attribute.String;
     HeadingH1: Attribute.String;
     HeroImage: Attribute.Media;
+    content: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
