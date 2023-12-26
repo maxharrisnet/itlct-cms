@@ -677,6 +677,45 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiEventItemEventItem extends Schema.CollectionType {
+  collectionName: 'event_items';
+  info: {
+    singularName: 'event-item';
+    pluralName: 'event-items';
+    displayName: 'Event';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required & Attribute.Unique;
+    description: Attribute.RichText;
+    content: Attribute.RichText & Attribute.Required;
+    startDate: Attribute.Date;
+    endDate: Attribute.Date;
+    slug: Attribute.UID<'api::event-item.event-item', 'title'> &
+      Attribute.Required;
+    featuredImage: Attribute.Media;
+    attachments: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event-item.event-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event-item.event-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventsAndProgramsEventsAndPrograms
   extends Schema.SingleType {
   collectionName: 'events';
@@ -830,79 +869,6 @@ export interface ApiOurWorkOurWork extends Schema.SingleType {
   };
 }
 
-export interface ApiPostPost extends Schema.CollectionType {
-  collectionName: 'posts';
-  info: {
-    singularName: 'post';
-    pluralName: 'posts';
-    displayName: 'Post';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    date: Attribute.Date &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    admin_user: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'>;
-    featured_image: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    excerpt: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    meta: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    body: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::post.post',
-      'oneToMany',
-      'api::post.post'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -919,12 +885,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::event-item.event-item': ApiEventItemEventItem;
       'api::events-and-programs.events-and-programs': ApiEventsAndProgramsEventsAndPrograms;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::our-team.our-team': ApiOurTeamOurTeam;
       'api::our-values.our-values': ApiOurValuesOurValues;
       'api::our-work.our-work': ApiOurWorkOurWork;
-      'api::post.post': ApiPostPost;
     }
   }
 }
