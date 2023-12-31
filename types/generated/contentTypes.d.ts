@@ -761,7 +761,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    title: Attribute.String;
     HeadingH1: Attribute.String;
     HeroImage: Attribute.Media;
     content: Attribute.RichText;
