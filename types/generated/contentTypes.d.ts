@@ -698,6 +698,7 @@ export interface ApiEventItemEventItem extends Schema.CollectionType {
       Attribute.Required;
     featuredImage: Attribute.Media;
     attachments: Attribute.Media;
+    highlights: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -762,9 +763,10 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
   attributes: {
     title: Attribute.String;
-    HeadingH1: Attribute.String;
-    HeroImage: Attribute.Media;
+    hero_title: Attribute.String;
+    hero_image: Attribute.Media;
     content: Attribute.RichText;
+    hero_subtitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
