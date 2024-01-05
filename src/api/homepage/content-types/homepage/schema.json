@@ -34,6 +34,11 @@
     },
     "hero_subtitle": {
       "type": "string"
+    },
+    "hero_button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ui.button"
     }
   }
 }

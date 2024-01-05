@@ -767,6 +767,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     hero_image: Attribute.Media;
     content: Attribute.RichText;
     hero_subtitle: Attribute.String;
+    hero_button: Attribute.Component<'ui.button', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
